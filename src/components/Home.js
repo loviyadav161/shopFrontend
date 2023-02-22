@@ -14,7 +14,7 @@ const Home = () => {
             limit : 10,
             skip : page * 10
         }
-        axios.post("http://localhost:4000/home/product/",value).then(function (response) {
+        axios.post("https://shop-qmb6.onrender.com/home/product/",value).then(function (response) {
             setItem(response.data.products);
           });
     };
