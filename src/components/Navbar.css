@@ -1,0 +1,16 @@
+li {
+    float: left;
+    margin: 5px;
+    margin-left: 10px;
+}
+.main_nav{
+    display: flex;
+}
+.logo{
+    margin: 5px;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
