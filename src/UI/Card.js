@@ -19,43 +19,38 @@ function Card(props) {
         <p>Price : {props.price}</p>
         <h5>{props.title}</h5>
         {cart.some((p) => p.id === props.id) ? (
-          <button className="btnRemove">
-            <a
-              href="javascript:void(0)"
-              onClick={() => {
-                dispatch({
-                  type: "REMOVE",
-                  payload: {
-                    id: props.id,
-                    title: props.title,
-                    imageUrl: props.image,
-                  },
-                });
-              }}
-            >
-              {" "}
-              Remove From Cart{" "}
-            </a>
+          <button
+            className="btnRemove"
+            onClick={() => {
+              dispatch({
+                type: "REMOVE",
+                payload: {
+                  id: props.id,
+                  title: props.title,
+                  imageUrl: props.image,
+                },
+              });
+            }}
+          >
+            {" "}
+            Remove From Cart{" "}
           </button>
         ) : (
-          <button className="btnAdd">
+          <button
+            className="btnAdd"
+            onClick={() => {
+              dispatch({
+                type: "ADD",
+                payload: {
+                  id: props.id,
+                  title: props.title,
+                  imageUrl: props.image,
+                },
+              });
+            }}
+          >
             {" "}
-            <a
-              href="javascript:void(0)"
-              onClick={() => {
-                dispatch({
-                  type: "ADD",
-                  payload: {
-                    id: props.id,
-                    title: props.title,
-                    imageUrl: props.image,
-                  },
-                });
-              }}
-            >
-              {" "}
-              Add to Cart{" "}
-            </a>
+            Add to Cart{" "}
           </button>
         )}
       </div>
