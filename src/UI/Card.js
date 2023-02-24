@@ -21,6 +21,7 @@ function Card(props) {
         {cart.some((p) => p.id === props.id) ? (
           <button className="btnRemove">
             <a
+              href="javascript:void(0)"
               onClick={() => {
                 dispatch({
                   type: "REMOVE",
@@ -40,6 +41,7 @@ function Card(props) {
           <button className="btnAdd">
             {" "}
             <a
+              href="javascript:void(0)"
               onClick={() => {
                 dispatch({
                   type: "ADD",
