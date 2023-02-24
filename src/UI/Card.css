@@ -1,18 +1,25 @@
-.btnAdd{
-    background-color: rgb(93, 93, 234);
-    border: 2px solid white;
-    color: white;
-    padding: auto;
-    margin: auto;
+.btnAdd {
+  background-color: rgb(93, 93, 234);
+  border: 2px solid white;
+  color: white;
+  padding: auto;
+  margin: auto;
+  border-radius: 2px;
 }
-.btnRemove{
-    background-color: red;
-    border: 2px solid white;
-    color: white;
-    padding: auto;
-    margin: auto;
+.btnRemove {
+  background-color: red;
+  border: 2px solid white;
+  color: white;
+  padding: auto;
+  margin: auto;
 }
-.cardMain{
-    margin: 5px 5px 5px 5px;
-    padding: 5px;
+.cardMain {
+  margin: 5px 5px 5px 5px;
+  padding: 5px;
+  display: grid;
+  background-color: aqua;
+  border-radius: 5px;
+}
+.cardBody {
+  margin-left: 10px;
 }

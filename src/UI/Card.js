@@ -1,6 +1,6 @@
 import React from "react";
 import { CartState } from "../context/Context";
-import './Card.css'
+import "./Card.css";
 function Card(props) {
   const {
     state: { cart },
@@ -9,37 +9,52 @@ function Card(props) {
 
   return (
     <div className="cardMain">
-      <img src={props.image} alt="" />
-      <div >
+      <img
+        style={{ width: "500px", height: "300px" }}
+        src={props.image}
+        alt=""
+      />
+      <div className="cardBody">
+        <p>{props.descrip}</p>
+        <p>Price : {props.price}</p>
         <h5>{props.title}</h5>
         {cart.some((p) => p.id === props.id) ? (
-          <a
-            className="btnRemove"
-            onClick={() => {
-              dispatch({
-                type: "REMOVE",
-                payload: {
-                  id: props.id,
-                  title: props.title,
-                  imageUrl: props.image,
-                },
-              });
-            }}
-          > Remove From Cart </a>
+          <button className="btnRemove">
+            <a
+              onClick={() => {
+                dispatch({
+                  type: "REMOVE",
+                  payload: {
+                    id: props.id,
+                    title: props.title,
+                    imageUrl: props.image,
+                  },
+                });
+              }}
+            >
+              {" "}
+              Remove From Cart{" "}
+            </a>
+          </button>
         ) : (
-          <a 
-            className="btnAdd"
-            onClick={() => {
-              dispatch({
-                type: "ADD",
-                payload: {
-                  id: props.id,
-                  title: props.title,
-                  imageUrl: props.image,
-                },
-              });
-            }}
-          > Add to Cart </a>
+          <button className="btnAdd">
+            {" "}
+            <a
+              onClick={() => {
+                dispatch({
+                  type: "ADD",
+                  payload: {
+                    id: props.id,
+                    title: props.title,
+                    imageUrl: props.image,
+                  },
+                });
+              }}
+            >
+              {" "}
+              Add to Cart{" "}
+            </a>
+          </button>
         )}
       </div>
     </div>
