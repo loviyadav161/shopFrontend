@@ -7,7 +7,7 @@ const Home = () => {
 
   useEffect(() => {
     getItems();
-  }, [page]);
+  });
 
   const getItems = async () => {
     const value = {
