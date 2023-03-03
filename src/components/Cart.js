@@ -1,24 +1,39 @@
-import React from "react";
-import { CartState } from "../context/Context";
+import React, { useState } from "react";
+import axios from "axios";
+// import { CartState } from "../context/Context";
 import Card from "../UI/Card";
 
-function CartScreen() {
-  const {
-    state: { cart },
-  } = CartState();
-
+function Cart() {
+  // const {
+  //   state: { cart },
+  // } = CartState();
+  const [cartItems, setCartItems] = useState([]);
+  async function onAdd(id) {
+    console.log("me");
+    await axios
+      .post("https://shop-qmb6.onrender.com/cartItems/product/", id)
+      .then(function (response) {
+        setCartItems((oldItems) => [response.data, ...oldItems]);
+      });
+  }
   return (
     <>
-      {cart.length === 0 ? (
-        <h1>Cart is Empty</h1>
+      {cartItems.length === 0 ? (
+        <div>
+          <h1>Cart is Empty</h1>
+          <button onClick={onAdd}>This is me</button>
+        </div>
       ) : (
-        <div className="products">
-          {cart.map((element, index) => {
+        <div>
+          {cartItems.map((element, index) => {
             return (
               <Card
                 id={element.id}
                 title={element.title}
                 image={element.imageUrl}
+                descrip={element.description}
+                price={element.price}
+                onAdd={onAdd}
                 key={index}
               />
             );
@@ -29,4 +44,4 @@ function CartScreen() {
   );
 }
 
-export default CartScreen;
+export default Cart;

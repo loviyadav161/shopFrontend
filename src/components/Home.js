@@ -7,14 +7,14 @@ const Home = () => {
 
   useEffect(() => {
     getItems();
-  });
+  }, [page]);
 
   const getItems = async () => {
     const value = {
       limit: 10,
       skip: page * 10,
     };
-    axios
+    await axios
       .post("https://shop-qmb6.onrender.com/home/product/", value)
       .then(function (response) {
         setItem(response.data.products);
